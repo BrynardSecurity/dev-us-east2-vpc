@@ -1,4 +1,4 @@
-# <img src="./images/amazon-vpc.png" width="35" height="35" alt="amazon-vpc"/> dev-us-east2-vpc
+<h1 align="left"><img src="./images/amazon-vpc.png" width="35" height="35" alt="amazon-vpc"/>dev-us-east2-vpc</h1>
 <p>
   <a href="./LICENSE.md" target="_blank">
     <img alt="License: LICENSE.md" src="https://img.shields.io/badge/License-LICENSE.md-yellow.svg" />
@@ -24,7 +24,7 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2021 [BrynardSecurity](https://github.com/RalphBrynard).<br />
-This project is [MIT](LICENSE.md) licensed.
+This project is [LICENSE.md](./LICENSE.md) licensed.
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
