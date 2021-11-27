@@ -103,4 +103,5 @@ module "vpc_endpoints_nocreate" {
 data "aws_security_group" "default" {
   name   = "sg-${var.vpc_name}"
   vpc_id = module.vpc.vpc_id
+  tags = "${local.tags}"
 }
