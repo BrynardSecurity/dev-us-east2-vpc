@@ -92,7 +92,7 @@ module "vpc" {
   default_security_group_ingress = []
   default_security_group_egress  = []
 
-  enable_flow_log = true
+  enable_flow_log = false
 }
 
 module "vpc_endpoints_nocreate" {
@@ -101,7 +101,7 @@ module "vpc_endpoints_nocreate" {
 }
 
 data "aws_security_group" "default" {
-  name   = "sg-${var.vpc_name}"
+  name   = "default"
   vpc_id = module.vpc.vpc_id
   tags = "${local.tags}"
 }
