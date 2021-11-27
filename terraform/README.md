@@ -1,4 +1,4 @@
-# <img src="./images/amazon-vpc.png">dev-us-east2-vpc
+# <img src="../images/amazon-vpc.png">dev-us-east2-vpc
 <p>
   <a href="./LICENSE.md" target="_blank">
     <img alt="License: LICENSE.md" src="https://img.shields.io/badge/License-LICENSE.md-yellow.svg" />
