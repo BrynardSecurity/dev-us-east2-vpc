@@ -3,7 +3,7 @@ terraform {
     organization = "BrynardSecurity"
 
     workspaces {
-      name = "aws_ustxmain_core_vpc"
+      name = "dev-us-east-2"
     }
   }
 }
