@@ -100,7 +100,7 @@ module "vpc_endpoints_nocreate" {
   create = false
 }
 
-#data "aws_security_group" "default" {
-#  name   = "default"
-#  vpc_id = module.vpc.vpc_id
-#}
+data "aws_security_group" "default" {
+  name   = "sg-${var.vpc_name}"
+  vpc_id = module.vpc.vpc_id
+}
