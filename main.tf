@@ -1,3 +1,4 @@
+# test plan
 terraform {
   backend "remote" {
     organization = "BrynardSecurity"
@@ -62,8 +63,8 @@ module "vpc" {
   cidr = var.cidr
 
   azs             = ["${local.region}a", "${local.region}b", "${local.region}c"]
-  private_subnets = ["10.90.1.0/24", "10.90.2.0/24", "10.90.3.0/24"]
-  public_subnets  = ["10.90.11.0/24", "10.90.12.0/24", "10.90.13.0/24"]
+  private_subnets = ["10.9.1.0/24", "10.9.2.0/24", "10.9.3.0/24"]
+  public_subnets  = ["10.9.11.0/24", "10.9.12.0/24", "10.9.13.0/24"]
 
   manage_default_route_table = true
   default_route_table_tags   = { DefaultRouteTable = true }
