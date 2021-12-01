@@ -1,4 +1,5 @@
-# test plan
+# Test Plan
+
 terraform {
   backend "remote" {
     organization = "BrynardSecurity"
