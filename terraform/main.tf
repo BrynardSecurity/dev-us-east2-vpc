@@ -44,8 +44,12 @@ variable "cidr" {
   description = "CIDR range for VPC deployment. Possible values: 10.0.0.0/16, 20.10.0.0/16"
   default     = ""
 }
-variable "build_branch" {}
-variable "build_repo" {}
+variable "build_branch" {
+  default = ""
+}
+variable "build_repo" {
+  default = ""
+}
 
 locals {
   name         = var.vpc_name
