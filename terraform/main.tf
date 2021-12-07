@@ -104,7 +104,7 @@ module "vpc" {
   default_security_group_ingress = []
   default_security_group_egress  = []
 
-  enable_flow_log = true
+  enable_flow_log = false
 }
 
 module "dev-us-east-2-tgw" {
