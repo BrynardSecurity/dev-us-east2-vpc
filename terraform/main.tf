@@ -153,6 +153,9 @@ module "dev-us-east-2-tgw" {
     }
   }
 
+  ram_allow_external_principals = true
+  ram_principals                = [880955004141]
+
   tags = {
     Purpose = "hvn-tgw-dev-us-east-2"
   }
