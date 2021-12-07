@@ -38,7 +38,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -var '${{ secrets.AWS_ACCOUNT }}' -var '${{ secrets.CUSTOMER_GATEWAY_IP }}' -var '${{ secrets.DEVICE_NAME }}'
+      run: terraform plan -var 'aws_account=${{ secrets.AWS_ACCOUNT }}' -var 'customer_gateway_ip=${{ secrets.CUSTOMER_GATEWAY_IP }}' -var 'device_name=${{ secrets.DEVICE_NAME }}'
       
 
       # On push to main, build or change infrastructure according to Terraform configuration files
