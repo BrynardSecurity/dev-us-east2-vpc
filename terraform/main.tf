@@ -35,8 +35,8 @@ module "vpc" {
   cidr = var.cidr
 
   azs             = ["${local.region}a", "${local.region}b", "${local.region}c"]
-  private_subnets = ["20.10.1.0/24", "20.10.2.0/24", "20.10.3.0/24"]
-  public_subnets  = ["20.10.11.0/24", "20.10.12.0/24", "20.10.13.0/24"]
+  private_subnets = ["10.9.1.0/24", "10.9.2.0/24", "10.9.3.0/24"]
+  public_subnets  = ["10.9.11.0/24", "10.9.12.0/24", "10.9.13.0/24"]
 
   manage_default_route_table = true
   default_route_table_tags   = { DefaultRouteTable = true }
@@ -72,6 +72,35 @@ module "vpc_endpoints_nocreate" {
   source = "terraform-aws-modules/vpc/aws//modules/vpc-endpoints"
   create = false
 }
+
+module "dev-us-east-2-tgw" {
+  source          = "terraform-aws-modules/transit-gateway/aws"
+  version         = "~> 2.0"
+  name            = "dev-us-east-2-tgw-${local.build_date}"
+  description     = "Hashicorp Vault HVN TGW"
+
+  enable_auto_accept_shared_attachments = true
+
+  vpc_attachments = {
+    vpc = {
+      vpc_id        = module.vpc.vpc_id
+      subnet_ids    = module.vpc.private_subnets
+      dns_support   = true
+      ipv6_support  = false
+
+      tgw_routes = [
+        {
+          destination_cidr_block = "10.9.0.0/16"
+        }
+      ]
+    }
+  }
+
+  tags = {
+    locals.tags
+  }
+}
+
 
 data "aws_security_group" "default" {
   name   = "${var.vpc_name}-${var.build_date}"
