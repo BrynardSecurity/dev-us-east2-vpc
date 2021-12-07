@@ -50,6 +50,12 @@ variable "build_branch" {
 variable "build_repo" {
   default = ""
 }
+variable "custom_tunnel1_inside_cidr" {
+  default = ""
+}
+variable "custom_tunnel1_preshared_key" {
+  default = ""
+}
 
 locals {
   name         = var.vpc_name
