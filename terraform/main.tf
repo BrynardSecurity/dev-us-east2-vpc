@@ -103,6 +103,6 @@ module "dev-us-east-2-tgw" {
 
 
 data "aws_security_group" "default" {
-  name   = "${var.vpc_name}-${var.build_date}"
+  name   = "${var.vpc_name}-${local.build_date}"
   vpc_id = module.vpc.vpc_id
 }
