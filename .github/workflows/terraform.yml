@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
     - main
-    
+
 jobs:
   terraform:
     name: 'Terraform'
@@ -38,7 +38,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan
+      run: terraform plan -var '${{ secrets.AWS_ACCOUNT }}' -var '${{ secrets.CUSTOMER_GATEWAY_IP }}' -var '${{ secrets.DEVICE_NAME }}'
       
 
       # On push to main, build or change infrastructure according to Terraform configuration files
