@@ -97,7 +97,7 @@ module "dev-us-east-2-tgw" {
   }
 
   tags = {
-    locals.tags
+    Purpose = "hvn-tgw-dev-us-east-2"
   }
 }
 
