@@ -1,21 +1,19 @@
-name: 'Terraform'
+name: "Terraform"
 
 on:
-  pull_request:
+  push:
     branches:
-    - main
+      - main
+  pull_request:
 
-    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: terraform
+defaults:
+  run:
+    working-directory: terraform
     
-    jobs:
-    terraform:
+jobs:
+  terraform:
     name: "Terraform"
     runs-on: ubuntu-latest
-    environment: dev
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -65,18 +63,3 @@ on:
             </details>
 
             *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
-
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: output
-            })
-
-      - name: Terraform Plan Status
-        if: steps.plan.outcome == 'failure'
-        run: exit 1
-
-      - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve
