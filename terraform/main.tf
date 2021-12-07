@@ -69,19 +69,19 @@ module "vpc" {
 }
 
 module "dev-us-east-2-tgw" {
-  source          = "terraform-aws-modules/transit-gateway/aws"
-  version         = "~> 2.0"
-  name            = "dev-us-east-2-tgw-${local.build_date}"
-  description     = "Hashicorp Vault HVN TGW"
+  source      = "terraform-aws-modules/transit-gateway/aws"
+  version     = "~> 2.0"
+  name        = "dev-us-east-2-tgw-${local.build_date}"
+  description = "Hashicorp Vault HVN TGW"
 
   enable_auto_accept_shared_attachments = true
 
   vpc_attachments = {
     vpc = {
-      vpc_id        = module.vpc.vpc_id
-      subnet_ids    = module.vpc.private_subnets
-      dns_support   = true
-      ipv6_support  = false
+      vpc_id       = module.vpc.vpc_id
+      subnet_ids   = module.vpc.private_subnets
+      dns_support  = true
+      ipv6_support = false
 
       tgw_routes = [
         {
