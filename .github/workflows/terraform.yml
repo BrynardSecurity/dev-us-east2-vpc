@@ -43,11 +43,23 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      working-directory: ./terraform
-      run: terraform plan -var="region=us-east-2"
+      uses: hashicorp/terraform-github-actions@master
+      with:
+        tf_actions_version: 0.12.13
+        tf_actions_subcommand: 'plan'
+        tf_actions_working_dir: 'terraform'
+      env:
+        TF_VAR_aws_account:${{ secrets.AWS_ACCOUNT }}
+        TF_VAR_customer_gateway_ip:${{ secrets.CUSTOMER_GATEWAY_IP }}
+        TF_VAR_device_name:${{ secrets.DEVICE_NAME }}
+      
 
       # On push to main, build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'pull'
-      run: terraform apply -auto-approve
+      uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'apply -auto-approve'
+          tf_actions_working_dir: 'terraform'
