@@ -3,6 +3,7 @@ variable "vpc_name" {
 }
 variable "aws_region" {
   description = "Region in which to deploy the VPC."
+  default = "us-east-2"
 }
 variable "aws_account" {
   description = "The AWS Account ID."
@@ -23,5 +24,9 @@ variable "environment" {
 variable "cidr" {
   description = "CIDR range for VPC deployment. Possible values: 10.0.0.0/16, 20.10.0.0/16"
 }
-variable "build_branch" {}
-variable "build_repo" {}
+variable "build_branch" {
+  default = "main"
+}
+variable "build_repo" {
+  default = "BrynardSecurity/dev-us-east2-vpc"
+}
