@@ -6,8 +6,9 @@ on:
       - main
   pull_request:
 defaults:
-  working-directory: terraform
-  
+  run:
+    working-directory: terraform
+
 jobs:
   terraform:
     name: "Terraform"
