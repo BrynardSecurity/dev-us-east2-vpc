@@ -14,6 +14,7 @@ provider "aws" {
 
 variable "vpc_name" {
   description = "Name of the VPC to deploy in the AWS account."
+  default = ""
 }
 variable "aws_region" {
   description = "Region in which to deploy the VPC."
@@ -21,6 +22,7 @@ variable "aws_region" {
 }
 variable "aws_account" {
   description = "The AWS Account ID."
+  default = ""
 }
 variable "aws_account_alias" {
   description = "AWS Account alias."
@@ -28,9 +30,11 @@ variable "aws_account_alias" {
 }
 variable "customer_gateway_ip" {
   description = "IP address of the customer gateway."
+  default = ""
 }
 variable "device_name" {
   description = "Customer gateway device name."
+  default = ""
 }
 variable "environment" {
   description = "Deployment environment. Possible values: Prod, Staging, Test, Dev."
@@ -38,6 +42,7 @@ variable "environment" {
 }
 variable "cidr" {
   description = "CIDR range for VPC deployment. Possible values: 10.0.0.0/16, 20.10.0.0/16"
+  default = ""
 }
 variable "build_branch" {}
 variable "build_repo" {}
