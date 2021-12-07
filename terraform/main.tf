@@ -127,7 +127,7 @@ module "vpn-gateway" {
 
   # tunnel inside cidr & preshared keys (optional)
   tunnel1_inside_cidr = var.custom_tunnel1_inside_cidr
-  tunnel2_inside_cidr = var.custom_tunnel2_inside_cidr
+  tunnel1_preshared_key = var.custom_tunnel1_preshared_key
 }
 
 module "dev-us-east-2-tgw" {
