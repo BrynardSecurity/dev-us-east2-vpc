@@ -12,6 +12,9 @@ provider "aws" {
   region = "us-east-2"
 }
 
+variable "device_name" {}
+variable "aws_account" {}
+
 locals {
   name         = var.vpc_name
   build_date   = formatdate("YYYY-MM-DD", timestamp())
