@@ -124,7 +124,7 @@ module "vpn-gateway" {
   vpc_subnet_route_table_count = 3
   vpc_subnet_route_table_ids   = module.vpc.private_route_table_ids
 
-  tunel1_inside_cidr    = var.custom_tunnel1_inside_cidr
+  tunnel1_inside_cidr   = var.custom_tunnel1_inside_cidr
   tunnel1_preshared_key = var.custom_tunnel1_preshared_key
 }
 
