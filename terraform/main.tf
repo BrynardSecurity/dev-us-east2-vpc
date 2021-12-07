@@ -108,18 +108,18 @@ module "vpc" {
 }
 
 module "vpn-gateway" {
-  source                = "terraform-aws-modules/vpn-gateway/aws"
-  version               = "2.11.0"
+  source  = "terraform-aws-modules/vpn-gateway/aws"
+  version = "2.11.0"
   # insert the 34 required variables here
-  vpc_id                = module.vpc.vpc_id
-  vpn_gateway_id        = module.vpc.vgw_id
-  customer_gateway_id   = module.vpc.vgw_ids[0]
+  vpc_id              = module.vpc.vpc_id
+  vpn_gateway_id      = module.vpc.vgw_id
+  customer_gateway_id = module.vpc.vgw_ids[0]
 
   vpc_subnet_route_table_count = 3
   vpc_subnet_route_table_ids   = module.vpc.private_route_table_ids
 
-  tunel1_inside_cidr           = var.custom_tunnel1_inside_cidr
-  tunnel1_preshared_key        = var.custom_tunnel1_preshared_key
+  tunel1_inside_cidr    = var.custom_tunnel1_inside_cidr
+  tunnel1_preshared_key = var.custom_tunnel1_preshared_key
 }
 
 module "dev-us-east-2-tgw" {
