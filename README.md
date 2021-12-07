@@ -1,4 +1,4 @@
-<h1 align="left"><img src="https://github.com/BrynardSecurity/dev-us-east2-vpc/blob/main/images/amazon-vpc.png" width="35" height="35" alt="amazon-vpc"/>dev-us-east2-vpc</h1>
+<h1 align="left"><img src="./images/amazon-vpc.png" width="35" height="35" alt="amazon-vpc"/>dev-us-east2-vpc</h1>
 <p>
   <a href="./LICENSE.md" target="_blank">
     <img alt="License: LICENSE.md" src="https://img.shields.io/badge/License-LICENSE.md-yellow.svg" />
