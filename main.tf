@@ -94,7 +94,35 @@ module "vpc" {
   default_security_group_ingress = []
   default_security_group_egress  = []
 
-  enable_flow_log = false
+  enable_flow_log = true
+}
+
+module "dev-us-east-2-tgw" {
+  source          = "terraform-aws-modules/transit-gateway/aws"
+  version         = "~> 2.0"
+  name            = "dev-us-east-2-tgw-${local.build_date}"
+  description     = "Hashicorp Vault HVN TGW"
+
+  enable_auto_accept_shared_attachments = true
+
+  vpc_attachments = {
+    vpc = {
+      vpc_id        = module.vpc.vpc_id
+      subnet_ids    = module.vpc.private_subnets
+      dns_support   = true
+      ipv6_support  = false
+
+      tgw_routes = [
+        {
+          destination_cidr_block = "10.9.0.0/16"
+        }
+      ]
+    }
+  }
+
+  tags = {
+    Purpose = "hvn-tgw-dev-us-east-2"
+  }
 }
 
 module "vpc_endpoints_nocreate" {
